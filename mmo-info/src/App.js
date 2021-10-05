@@ -15,11 +15,47 @@ function App() {
       console.log(response);
       setNextUrl(response.next);
       setPrevUrl(response.previous);
+      setMmoData(response);
       setLoading(false);
     }
     fetchData();
   }, []);
-  return <div>{loading ? <h1>Loading...</h1> : <h1>Data is fetched</h1>}</div>;
+
+  const next = async () => {
+    setLoading(true);
+    let data = await getAllGames(nextUrl);
+    setNextUrl(data.next);
+    setPrevUrl(data.previous);
+    setLoading(false);
+  };
+
+  const prev = async () => {
+    if (!prevUrl) return;
+    setLoading(true);
+    let data = await getAllGames(prevUrl);
+    setNextUrl(data.next);
+    setPrevUrl(data.previous);
+    setMmoData(data);
+    setLoading(false);
+  };
+
+  return (
+    <div>
+      {loading ? (
+        <h1>Loading...</h1>
+      ) : (
+        <>
+          <button onClick={prev}>Prev</button>
+          <button onClick={next}>Next</button>
+          <div>
+            {mmoData.map((data, i) => {
+              return <li key={i} {...data} />;
+            })}
+          </div>
+        </>
+      )}
+    </div>
+  );
 }
 
 export default App;
