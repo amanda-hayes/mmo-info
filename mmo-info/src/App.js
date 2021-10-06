@@ -64,8 +64,8 @@ function App() {
                           <h3>{data.title}</h3>
                           {data.short_description}
                           <br />
-                          <Button variant="contained" href="#contained-buttons">
-                            <a href={data.game_url}>LEARN MORE</a>
+                          <Button variant="contained" href={data.game_url}>
+                            LEARN MORE
                           </Button>
                           <br />
                           {data.platform}
