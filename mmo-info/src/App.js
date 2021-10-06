@@ -56,6 +56,7 @@ function App() {
           <h1>Most Popular MMOs</h1>
           <h3>Looking for a new MMO to try? Look no further!</h3>
           <div>
+<<<<<<< HEAD
             {mmoData.map((data) => {
               return (
                 <>
@@ -71,6 +72,10 @@ function App() {
                   </li>
                 </>
               );
+=======
+            {mmoData.map((data, i) => {
+              return <li key={i} {...data} />;
+>>>>>>> parent of 61fb1b8 (display game data in list format)
             })}
           </div>
         </>
