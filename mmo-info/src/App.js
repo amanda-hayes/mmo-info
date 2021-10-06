@@ -1,12 +1,6 @@
 import { useState, useEffect } from "react";
 import { getAllGames } from "./services/games";
 import "./App.css";
-// import Card from "@mui/material/Card";
-// import CardActions from "@mui/material/CardActions";
-// import CardContent from "@mui/material/CardContent";
-// import CardMedia from "@mui/material/CardMedia";
-// import Button from "@mui/material/Button";
-// import Typography from "@mui/material/Typography";
 
 function App() {
   const [mmoData, setMmoData] = useState([]);
@@ -56,31 +50,15 @@ function App() {
           <h1>Most Popular MMOs</h1>
           <h3>Looking for a new MMO to try? Look no further!</h3>
           <div>
-<<<<<<< HEAD
-<<<<<<< HEAD
             {mmoData.map((data) => {
               return (
-                <>
-                  <li key={data.id} {...data}>
-                    <Card>
-                      <CardContent>
-                        {data.title}
-                        {data.short_description}
-                        {data.game_url}
-                        {data.platform}
-                      </CardContent>
-                    </Card>
-                  </li>
-                </>
+                <li key={data.id} {...data}>
+                  {data.title}
+                  {data.short_description}
+                  {data.game_url}
+                  {data.platform}
+                </li>
               );
-=======
-            {mmoData.map((data, i) => {
-              return <li key={i} {...data} />;
->>>>>>> parent of 61fb1b8 (display game data in list format)
-=======
-            {mmoData.map((data, i) => {
-              return <li key={i} {...data} />;
->>>>>>> parent of 61fb1b8 (display game data in list format)
             })}
           </div>
         </>
