@@ -57,6 +57,7 @@ function App() {
           <h3>Looking for a new MMO to try? Look no further!</h3>
           <div>
 <<<<<<< HEAD
+<<<<<<< HEAD
             {mmoData.map((data) => {
               return (
                 <>
@@ -72,6 +73,10 @@ function App() {
                   </li>
                 </>
               );
+=======
+            {mmoData.map((data, i) => {
+              return <li key={i} {...data} />;
+>>>>>>> parent of 61fb1b8 (display game data in list format)
 =======
             {mmoData.map((data, i) => {
               return <li key={i} {...data} />;
