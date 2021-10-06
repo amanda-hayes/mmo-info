@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { getAllGames } from "./services/games";
 import "./App.css";
+import { Card, CardContent, Button, Box, Grid } from "@mui/material";
 
 function App() {
   const [mmoData, setMmoData] = useState([]);
@@ -45,19 +46,34 @@ function App() {
         <h1>Loading...</h1>
       ) : (
         <>
-          <button onClick={prev}>Prev</button>
-          <button onClick={next}>Next</button>
-          <h1>Most Popular MMOs</h1>
+          <Button onClick={prev}>Prev</Button>
+          <Button onClick={next}>Next</Button>
+          <h1>MMOs for Every Taste</h1>
           <h3>Looking for a new MMO to try? Look no further!</h3>
           <div>
             {mmoData.map((data) => {
               return (
-                <li key={data.id} {...data}>
-                  {data.title}
-                  {data.short_description}
-                  {data.game_url}
-                  {data.platform}
-                </li>
+                <Grid container sx={{ flexGrow: 1 }} spacing={2}>
+                  <Grid item sx={4}>
+                    <li key={data.id} {...data}>
+                      <Card
+                        sx={{ minWidth: 345, padding: 2 }}
+                        variant="outlined"
+                      >
+                        <CardContent>
+                          <h3>{data.title}</h3>
+                          {data.short_description}
+                          <br />
+                          <Button variant="contained" href="#contained-buttons">
+                            <a href={data.game_url}>LEARN MORE</a>
+                          </Button>
+                          <br />
+                          {data.platform}
+                        </CardContent>
+                      </Card>
+                    </li>
+                  </Grid>
+                </Grid>
               );
             })}
           </div>
