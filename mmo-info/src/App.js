@@ -1,6 +1,12 @@
 import { useState, useEffect } from "react";
 import { getAllGames } from "./services/games";
 import "./App.css";
+// import Card from "@mui/material/Card";
+// import CardActions from "@mui/material/CardActions";
+// import CardContent from "@mui/material/CardContent";
+// import CardMedia from "@mui/material/CardMedia";
+// import Button from "@mui/material/Button";
+// import Typography from "@mui/material/Typography";
 
 function App() {
   const [mmoData, setMmoData] = useState([]);
@@ -54,10 +60,14 @@ function App() {
               return (
                 <>
                   <li key={data.id} {...data}>
-                    {data.title}
-                    {data.short_description}
-                    {data.game_url}
-                    {data.platform}
+                    <Card>
+                      <CardContent>
+                        {data.title}
+                        {data.short_description}
+                        {data.game_url}
+                        {data.platform}
+                      </CardContent>
+                    </Card>
                   </li>
                 </>
               );
