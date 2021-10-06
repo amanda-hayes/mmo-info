@@ -48,8 +48,15 @@ function App() {
           <button onClick={prev}>Prev</button>
           <button onClick={next}>Next</button>
           <div>
-            {mmoData.map((data, i) => {
-              return <li key={i} {...data} />;
+            {mmoData.map((data) => {
+              return (
+                <li key={data.id} {...data}>
+                  {data.title}
+                  {data.short_description}
+                  {data.game_url}
+                  {data.platform}
+                </li>
+              );
             })}
           </div>
         </>
