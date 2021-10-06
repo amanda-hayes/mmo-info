@@ -40,22 +40,26 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="App">
       {loading ? (
         <h1>Loading...</h1>
       ) : (
         <>
           <button onClick={prev}>Prev</button>
           <button onClick={next}>Next</button>
+          <h1>Most Popular MMOs</h1>
+          <h3>Looking for a new MMO to try? Look no further!</h3>
           <div>
             {mmoData.map((data) => {
               return (
-                <li key={data.id} {...data}>
-                  {data.title}
-                  {data.short_description}
-                  {data.game_url}
-                  {data.platform}
-                </li>
+                <>
+                  <li key={data.id} {...data}>
+                    {data.title}
+                    {data.short_description}
+                    {data.game_url}
+                    {data.platform}
+                  </li>
+                </>
               );
             })}
           </div>
